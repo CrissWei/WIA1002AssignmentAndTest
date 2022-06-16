@@ -1,0 +1,13 @@
+<note>
+    <test>Sample</test><note>Data</note></note>
+        Duplicate root element <note>
+Contents of XMLfile
+<note>
+    <ID>1002</ID>
+    <Name>Data structure</name></ note>
+Begin Element : <Name> Invalid ending element : </name>
+Contents of XMLfile
+<note>
+    <ID>1002</ID>
+    <Name>Data structure</Name></Lecturer>Ang<Lecturer></ note>
+      <note> Invalid ending element : </Lecturer>
