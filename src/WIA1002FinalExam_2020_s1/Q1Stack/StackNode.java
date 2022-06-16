@@ -3,7 +3,7 @@ package WIA1002FinalExam_2020_s1.Q1Stack;
 import java.util.Iterator;
 
 public class StackNode<E> implements Iterable<E> {
-    
+
     //内部类
     private class Node {
         //成员变量
