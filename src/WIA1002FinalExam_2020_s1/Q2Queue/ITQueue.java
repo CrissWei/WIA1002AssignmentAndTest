@@ -1,4 +1,4 @@
-package WIA1002LabAssignment.Lab7Queue.ITheiMa;
+package WIA1002FinalExam_2020_s1.Q2Queue;
 
 /**
  *输入/** 然后按下enter,自动生成
@@ -16,24 +16,24 @@ package WIA1002LabAssignment.Lab7Queue.ITheiMa;
 @SuppressWarnings("all")
 public class ITQueue<E> {
     //内部类：Node节点类
-    private class Node {
+    private class QueueNode {
         public E item;
-        public Node next;
+        public QueueNode next;
 
         //alt+ins自动生成带参构造
-        public Node(E item, Node next) {
+        public QueueNode(E item, QueueNode next) {
             this.item = item;
             this.next = next;
         }
     }
 
-    private Node head;//记录头结点
-    private Node last;//尾结点
+    private QueueNode head;//记录头结点
+    private QueueNode last;//尾结点
     private int N;//链表的长度
 
     //初始化节点(手动初始化)
     public ITQueue() {
-        this.head = new Node(null, null); //创建一个空节点名为head
+        this.head = new QueueNode(null, null); //创建一个空节点名为head
         this.last = null;//尾结点为null
         this.N = 0;//链表长度为0
     }
@@ -52,7 +52,7 @@ public class ITQueue<E> {
     public void add(E e) {
         //若链表尾last结点为null
         if (last == null) {
-            last = new Node(e, null);//创建一个新的last节点
+            last = new QueueNode(e, null);//创建一个新的last节点
             head.next = last;//头结点head的next指针,指向尾结点
         }
         //若链表尾结点不为null
@@ -65,8 +65,8 @@ public class ITQueue<E> {
 
 */
             //IT黑马老师的方法【我已经理解真正的原理了】目的是插入新的尾节点，指向null
-            Node oldLast = last;//复制一下last节点给oldLast保存起来
-            last = new Node(e, null);//创建一个新的尾结点,赋值给之前的last尾结点
+            QueueNode oldLast = last;//复制一下last节点给oldLast保存起来
+            last = new QueueNode(e, null);//创建一个新的尾结点,赋值给之前的last尾结点
             oldLast.next = last;//旧尾结点，指向新插入的尾结点即可（我自己理解的）
         }
         N++;//元素加1
@@ -79,7 +79,7 @@ public class ITQueue<E> {
         }
         //删除首节点,第1个节点指向第3个，断开第2个节点 head->1->2->3->4变成 head->1->3->4
         //head.next = head.next.next;【为什么测试时候这里也不行啊,明明是一样的啊】======================================
-        Node oldFirst = head.next; //用这2步代替上面的一步也是一样的意思
+        QueueNode oldFirst = head.next; //用这2步代替上面的一步也是一样的意思
         head.next = oldFirst.next;
         N--;
 
@@ -97,7 +97,7 @@ public class ITQueue<E> {
         //需要遍历链表，这个类要实现implements Iterable 接口
         //还没写........
         ///////////////////以下是我自己的思路///////////////////
-        Node headClone = head;
+        QueueNode headClone = head;
         while (headClone.next != null) {
             headClone = headClone.next;//往后移动1位，直到headClone移动到尾结点，此时headClone就是尾结点-->null
             if (e.equals(headClone.item)) return true; //参数e和节点item挨个比较是否相等
@@ -114,7 +114,7 @@ public class ITQueue<E> {
         if (index >= getSize()) return null;//索引太大
         if (head.next == null) return null;//空链表
 
-        Node headClone = head;
+        QueueNode headClone = head;
         for (int i = 0; i <= index; i++) {//是i <= index ,一共循环【index+1】次
             headClone = headClone.next;//后移一位
         }
@@ -123,7 +123,7 @@ public class ITQueue<E> {
 
     //遍历所以元素
     public void displayAll() {
-        Node headClone = head;
+        QueueNode headClone = head;
         if (headClone.next == null){ //return; //直接结束方法
             System.out.println("Nothing to display");
             return;
@@ -153,7 +153,7 @@ public class ITQueue<E> {
      * */
     public void changeOrder(int index) {
         //循环遍历，找到index前一个位置元素，叫做cur
-        Node curPre = head;//记录首节点（head是虚无的，head.next就是第一个真正存元素的节点）
+        QueueNode curPre = head;//记录首节点（head是虚无的，head.next就是第一个真正存元素的节点）
 
         //如果是从head.next开始就【循环index次，i < index】
         //如果是从head开始就【循环index+1次，i < index+1】
@@ -162,7 +162,7 @@ public class ITQueue<E> {
         }
 
         //断开与cur前后的2个连接，并把pre.next指向-->curNode.next
-        Node curNode = curPre.next;
+        QueueNode curNode = curPre.next;
         curPre.next=curNode.next;
 
 

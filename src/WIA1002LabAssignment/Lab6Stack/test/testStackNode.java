@@ -1,8 +1,14 @@
 package WIA1002LabAssignment.Lab6Stack.test;
 
 import WIA1002LabAssignment.Lab6Stack.API.StackNode;
+/**
+ * @name Wei Zhang
+ * @ID S2004131
+ * @Date 2022/6/16
+ *
+ * */
 
-
+@SuppressWarnings("all") //压制所有的警告
 //测试非常正确，所有方法都是我自己独立写的，完全正确，还可以随心所欲添加新的方法
 public class testStackNode {
     public static void main(String[] args) {
@@ -25,6 +31,8 @@ public class testStackNode {
         System.out.println(letter.getSize());
         System.out.println("==========");
 
+
+        System.out.println(letter.indexOf("A"));//改方法已过时
         System.out.println(letter.indexOf2("A"));
         System.out.println(letter.indexOf2("B"));
         System.out.println(letter.indexOf2("C"));

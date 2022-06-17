@@ -1,5 +1,10 @@
 package WIA1002LabAssignment.Lab6Stack.API;
-
+/**
+ * @name Wei Zhang
+ * @ID S2004131
+ * @Date 2022/6/16
+ *
+ * */
 public class StackNode<E> {
     //内部类
     private class Node{
@@ -95,6 +100,7 @@ public class StackNode<E> {
     }
 
     //返回元素e处的索引(第一次出现e)
+    @Deprecated //这个注解，代表这个方法已过时，可以用更好的方法
     public int indexOf(E e){
         if (isEmpty()) return -1;
         int count=0;

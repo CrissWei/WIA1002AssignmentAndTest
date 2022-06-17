@@ -1,5 +1,10 @@
 package WIA1002FinalExam_2020_s1.Q1Stack;
-
+/**
+ * @name Wei Zhang
+ * @ID S2004131
+ * @Date 2022/6/16
+ *
+ * */
 //测试非常正确，所有方法都是我自己独立写的，完全正确，还可以随心所欲添加新的方法
 public class StackNodeTest {
     public static void main(String[] args) {
@@ -49,7 +54,7 @@ public class StackNodeTest {
         System.out.println("============");
 
         //现在还剩A<-B<-C  <-F<-G <-X ,删除了D E H
-        System.out.println(letter.indexOf2("A"));
+        System.out.println(letter.indexOf("A"));
         System.out.println(letter.indexOf2("B"));
         System.out.println(letter.indexOf2("C"));
         System.out.println(letter.indexOf2("D"));
@@ -58,7 +63,7 @@ public class StackNodeTest {
         System.out.println(letter.indexOf2("X"));
 
         System.out.println("===========");
-        System.out.println(letter.search(0));
+        System.out.println(letter.search(0));//right
         System.out.println(letter.search(1));
         System.out.println(letter.search(2));
         System.out.println(letter.search(3));

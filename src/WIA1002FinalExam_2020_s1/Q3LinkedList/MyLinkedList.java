@@ -1,4 +1,4 @@
-package WIA1002LabAssignment.Lab4LinkedList.ITheiMa;
+package WIA1002FinalExam_2020_s1.Q3LinkedList;
 /**
  * @name Wei Zhang
  * @ID S2004131
@@ -12,7 +12,7 @@ import java.util.Iterator;
         //Y的前一个节点X--指向->Y的后一个节点Z，Y被删除，由原来的X->Y->Z变成X->Z
         preNode.next = nextNode;
 * */
-public class MyLinkedList <E> implements Iterator<E> {
+public class MyLinkedList<E> implements Iterator<E> {
     private Node2 head;//记录头结点
     private int size;//记录链表长度
 

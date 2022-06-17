@@ -9,13 +9,103 @@ package WIA1002FinalExam_2020_s1.Q1Stack;
  * */
 import java.util.Iterator;
 
-public class StackNode<E> implements Iterable<E> {
+public class Q1Answer<E> implements Iterable<E> {
+    public static void main(String[] args) {
+        Q1Answer<String> letter = new Q1Answer<>();
+        System.out.println(letter.isEmpty());
+        System.out.println(letter.getSize());
+        System.out.println("==========");
 
+        letter.push("A");
+        letter.push("B");
+        letter.push("C");
+        letter.push("D");
+        System.out.println(letter.peek());//D 没错
+        letter.push("E");
+        letter.push("F");
+        letter.push("G");
+
+        System.out.println("=====display all遍历不删除=====");
+        letter.displayAll();
+        System.out.println("==========");
+
+        System.out.println(letter.getSize());
+        System.out.println("======获取中间值====");
+        System.out.println(letter.popMiddle());//没错
+
+        System.out.println("==========");
+        System.out.println(letter.getSize());
+        System.out.println("==========");
+        letter.push("H");
+        System.out.println(letter.getSize());
+        System.out.println("==========");
+
+        System.out.println(letter.peek());//没错
+        System.out.println(letter.pop());//删除 对了
+        System.out.println(letter.isEmpty());
+        System.out.println(letter.getSize());
+        System.out.println("==========");
+        System.out.println("======获取中间值====");
+        System.out.println(letter.popMiddle());//没错
+        System.out.println(letter.getSize());
+        System.out.println("=====");
+        letter.push("X");
+        System.out.println(letter.getSize());
+        System.out.println("======获取中间值====");
+        System.out.println(letter.popMiddle());//没错
+        System.out.println(letter.getSize());
+        System.out.println("============");
+
+        //现在还剩A<-B<-C  <-F<-G <-X ,删除了D E H
+        System.out.println(letter.indexOf("A"));
+        System.out.println(letter.indexOf2("B"));
+        System.out.println(letter.indexOf2("C"));
+        System.out.println(letter.indexOf2("D"));
+        System.out.println(letter.indexOf2("E"));
+        System.out.println(letter.indexOf2("G"));
+        System.out.println(letter.indexOf2("X"));
+
+        System.out.println("===========");
+        System.out.println(letter.search(0));
+        System.out.println(letter.search(1));
+        System.out.println(letter.search(2));
+        System.out.println(letter.search(3));
+        System.out.println(letter.search(4));
+        System.out.println("==========");
+        letter.push("维哥");
+        System.out.println("=====display all遍历不删除=====");
+        letter.displayAll();
+        System.out.println("==========");
+
+        System.out.println("=====pop all,按个删除=====");
+        //跟clear一样的效果
+        letter.popAll();
+        System.out.println("=========");
+
+        System.out.println(letter.isEmpty());
+
+        System.out.println("==========");
+        letter.push("Cris");
+        letter.push("is");
+        letter.push("name");
+        letter.push("my");
+        System.out.println(letter.getSize());
+        System.out.println("====");
+        letter.displayAll();
+        System.out.println("====");
+        letter.clear();
+        System.out.println(letter.isEmpty());
+    }
+
+
+
+///////////////////////////////////////////////////////////////////////////////
     //内部类
-    private class Node {
+    /*private*/ class Node {
         //成员变量
         public E item;
         public Node next;
+
 
         public Node(E item, Node next) {
             this.item = item;
@@ -24,18 +114,18 @@ public class StackNode<E> implements Iterable<E> {
     }
 
     //成员变量
-    private final Node head;
+    private Node head;
     //private Node last;
     private int size;
 
     //空参构造。初始化，设置默认值
-    public StackNode() {
+    public Q1Answer() {
         this.head = new Node(null, null);
         this.size = 0;
     }
 
     //全参构造，用不到
-    public StackNode(Node head, int size) {
+    public Q1Answer(Node head, int size) {
         this.head = head;
         this.size = size;
     }
@@ -94,7 +184,8 @@ public class StackNode<E> implements Iterable<E> {
 
     //根据索引index查找元素e
     public E search(int index) {
-        if (isEmpty() || index > size) return null;
+        if (isEmpty()) return null;
+        if (index > size) return null;
         //if (head.next==null) return null;
         Node curNode = head;//用curNode来代替记录head
         //if (curNode.item==null) return null;
