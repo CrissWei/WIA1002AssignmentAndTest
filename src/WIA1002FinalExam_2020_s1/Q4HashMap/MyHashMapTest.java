@@ -56,7 +56,7 @@ public class MyHashMapTest {
         System.out.println("=====display=============");
         map.displayAll();
 
-        System.out.println("================");
+        System.out.println("===remove has some err=============");
         map.remove(0);
         map.remove(1);
         //map.remove(2);
